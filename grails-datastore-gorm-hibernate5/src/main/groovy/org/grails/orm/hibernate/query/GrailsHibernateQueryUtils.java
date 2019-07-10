@@ -303,7 +303,8 @@ public class GrailsHibernateQueryUtils {
                                  From queryRoot,
                                  CriteriaBuilder criteriaBuilder,
                                  String sort, String order, boolean ignoreCase) {
-        if (sort.equalsIgnoreCase(entity.getIdentity().getName())) {
+
+        if (entity.getIdentity() != null && sort.equalsIgnoreCase(entity.getIdentity().getName())) {
             Expression path = queryRoot;
 
             if (ignoreCase) {
